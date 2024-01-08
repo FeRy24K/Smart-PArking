@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parking Monitoring</title>
+    <style>
+      /* Reset default margin and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Style the body */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the header */
+      header {
+        background-color: #162a97;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      /* Style the main content */
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      /* Style the video container */
+      .video-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .video-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 7px solid #000000;
+      }
+      h3 {
+        text-align: center;
+      }
+    </style>
+    <meta http-equiv="refresh" content="500" />
+    <!-- Menambahkan delay 5 detik -->
+  </head>
+  <body>
+    <header>
+      <h2>Parking Monitoring</h2>
+    </header>
+    <main>
+      <h3>Parkiran 1</h3>
+      <div class="video-container">
+        <img src="{{ url_for('video_feed') }}" width="1920" height="1080" alt="Live Video Stream" />
+      </div>
+    </main>
+    <main>
+      <h3>Parkiran 2</h3>
+      <div class="video-container">
+        <img src="{{ url_for('video_feed1') }}" width="1920" height="1080" alt="Live Video Stream" />
+      </div>
+    </main>
+    <center>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O3pXIMbHrN8?si=atBkwuiAZxaEGP0K"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </center>
+    <br>
+    <br>
+  </body>
+</html>

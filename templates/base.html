@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Smart Parking</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" />
+    <title>Pesan Tempat Parkir</title>
+  </head>
+
+  <body>
+    <!-- bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse" style="background-color: rgb(100, 5, 189); padding-top: 3%">
+      <div class="container">
+        <a class="navbar-brand mx-auto d-inline-block align-text-top" href="#">
+          <center>
+            <h1>Sistem Pemesanan Tempat Parkir</h1>
+          </center>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- akhir bootstrap -->
+    <!-- <h1>Sistem Pemesanan Tempat Parkir</h1> -->
+    <div class="atas" style="background-color: rgb(100, 5, 189)">
+      <form action="/pesan_parkir" method="post" id="booking">
+        <label for="nomor_petak" style="color: #fff">Nomor Petak Parkir:</label>
+        <input type="number" id="nomor_petak" name="nomor_petak" min="1" max="{{ posList }}" required />
+        <button type="submit">Pesan</button>
+      </form>
+    </div>
+    <div class="pesan">
+      {% if pesan %} {{ pesan | safe }}
+      <br />
+      <form action="/reset_parking" method="post">
+        <label for="nomor_petak_reset">Nomor Tempat Parkir:</label>
+        <input type="number" id="nomor_petak_reset" name="nomor_petak_reset" min="1" max="{{ posList }}" required />
+        <button type="submit">Reset</button>
+      </form>
+      {% endif %}
+    </div>
+
+    <section>
+      <main>
+        <h3>Parkiran 1</h3>
+        <div class="video-container">
+          <img src="{{ url_for('video_feed') }}" width="1920" height="1080" alt="Live Video Stream" />
+        </div>
+      </main>
+      <main>
+        <h3>Parkiran 2</h3>
+        <div class="video-container">
+          <img src="{{ url_for('video_feed1') }}" width="1920" height="1080" alt="Live Video Stream" />
+        </div>
+      </main>
+    </section>
+
+    <!-- <div class="booking-durations">
+      <h3>Durasi Parkir</h3>
+      <ul>
+        {% for duration in booking_durations %}
+        <li>{{ duration }}</li>
+        {% endfor %}
+      </ul>
+    </div> -->
+
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+  </body>
+</html>
